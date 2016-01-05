@@ -1,0 +1,23 @@
+{
+  "name": "workpad",
+  "version": "1.0.0",
+  "description": "Yea, it's a Readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwiash/workpad.git"
+  },
+  "author": "dwi ash (me@dwiash.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwiash/workpad/issues"
+  },
+  "homepage": "https://github.com/dwiash/workpad#readme",
+  "dependencies": {
+    "cloudant": "^1.4.0",
+    "request": "^2.67.0"
+  }
+}
