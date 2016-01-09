@@ -18,7 +18,6 @@ var cloudant = {
 
 // 01 Auth Hubstaff
 function getAuthToken(){
-    console.log('getAuthToken called');
     request.post(
         {
             url:'https://api.hubstaff.com/v1/auth',
@@ -29,29 +28,24 @@ function getAuthToken(){
             }
         },
         function(err, res, body){
-            console.log(err);
-            /*
-            body = JSON.parse(body);
             if (res.statusCode == '200') {
-                console.log('status 200');
+				body = JSON.parse(body);
                 hubstaff.AuthToken = body.user.auth_token;
                 hubstaff.UserId = body.user.id;
                 fs.writeFileSync('./auth.token',JSON.stringify(body));
             }else if(res.statusCode == '403'){
-                console.log('status 403');
+				body = JSON.parse(body);
                 var bodyObj = JSON.parse(fs.readFileSync('./auth.token', 'utf8'));
                 hubstaff.AuthToken = bodyObj.user.auth_token;
                 hubstaff.UserId = bodyObj.user.id;
             }else{
                 console.log('no status');
             }
-            console.log(res.statusCode);
-            console.log(hubstaff);
-            */
+			console.log(hubstaff.AuthToken);
+			console.log(hubstaff.UserId);
         }
     );
 }
-console.log('hey');
 getAuthToken();
 
 
