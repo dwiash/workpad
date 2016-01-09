@@ -1,5 +1,6 @@
 var request = require("request");
 var fs = require('fs');
+var sqlite = require('sqlite3');
 
 
 var hubstaff = {
@@ -10,11 +11,6 @@ var hubstaff = {
     UserId      : null
 };
 
-var cloudant = {
-    Account: process.env.cloudant_account,
-    Key: process.env.cloudant_key,
-    Password: process.env.cloudant_pass
-};
 
 // 01 Auth Hubstaff
 function getAuthToken(){
@@ -28,6 +24,11 @@ function getAuthToken(){
             }
         },
         function(err, res, body){
+			//switch(err){
+				//case 'case':
+					//break;
+			//}
+			console.log(arguments);
             if (res.statusCode == '200') {
 				body = JSON.parse(body);
                 hubstaff.AuthToken = body.user.auth_token;
@@ -51,14 +52,32 @@ getAuthToken();
 
 
 
-// 02 Connect to Cloudant
-/*
-var db = require('cloudant')({
-    account :cloudant.Account, 
-    key     :cloudant.Key, 
-    password:cloudant.Password
-});
-*/
+// 02 Connect to SQLite DB
+// if not exist, create a new db file
+
+//var db = new sqlite.Database('./db');
+//db.serialize(function() {
+	//db.run("CREATE TABLE lorem (info TEXT)", function(){
+		//console.log(arguments);
+	//});
+
+	//var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
+	//for (var i = 0; i < 10; i++) {
+		//stmt.run("Ipsum " + i);
+	//}
+	//stmt.finalize();
+
+	//db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
+		//console.log(row.id + ": " + row.info);
+	//});
+//});
+
+//db.close();
+
+
+
+
+
 
 
 
